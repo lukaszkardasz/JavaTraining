@@ -1,5 +1,7 @@
 package training.oop.manufacter;
 
+import java.util.Date;
+
 class Car {
     private static int carSeriesCounter;
 
@@ -24,10 +26,31 @@ class Car {
     private String VIN;
     private static String VIN_temp;
 
+    private boolean isRunning = false;
+    private Date startTime;
+    private Date stopTime;
+
     void start() {
+        isRunning = true;
+        startTime = new Date();
     }
 
     void stop() {
+        isRunning = false;
+        stopTime = new Date();
+    }
+
+    void workTime() {
+        if (isRunning) {
+            Date currentTime = new Date();
+            long activeSec = currentTime.getTime() - startTime.getTime();
+            System.out.println("Active: " + activeSec / 1000);
+        } else {
+            long startMilis = (startTime == null) ? 0 : startTime.getTime();
+            long stopMilis = (stopTime == null) ? 0 : stopTime.getTime();
+            long activeSec = stopMilis - startMilis;
+            System.out.println("Active: " + activeSec / 1000);
+        }
     }
 
     void runForward() {
