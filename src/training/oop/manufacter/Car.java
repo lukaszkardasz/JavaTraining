@@ -1,12 +1,28 @@
 package training.oop.manufacter;
 
 class Car {
+    private static int carSeriesCounter;
+
+    {
+        System.out.println("Static block anonymous");
+        VIN_temp = "VIN____" + carSeriesCounter;
+        carSeriesCounter++;
+    }
+
+    static {
+        System.out.println("Static block signature");
+        carSeriesCounter = 1_000;
+    }
+
     private String colour;
     private String brand;
     private String model;
     private int yearOfProd;
     private String sortOf;
     private int availableSeats;
+
+    private String VIN;
+    private static String VIN_temp;
 
     void start() {
     }
@@ -30,12 +46,8 @@ class Car {
     }
 
     public Car() {
-        brand = "Ford";
-        model = "T";
-        colour = "black";
-        yearOfProd = 1909;
-        availableSeats = 2;
-        sortOf = "hatchback";
+        this("black", "Ford", "T", 1909,
+                "hatchback", 2);
     }
 
     public Car(String colour, String brand, String model,
@@ -46,6 +58,8 @@ class Car {
         this.yearOfProd = yearOfProd;
         this.sortOf = sortOf;
         this.availableSeats = availableSeats;
+
+        this.VIN = VIN_temp;
     }
 
     @Override
@@ -55,7 +69,8 @@ class Car {
                 .append("\n\tBrand: ").append(brand)
                 .append("\n\tModel: ").append(model)
                 .append("\n\tColor: ").append(colour)
-                .append("\n\tY of Prod: ").append(yearOfProd);
+                .append("\n\tY of Prod: ").append(yearOfProd)
+                .append("\n\tVIN: ").append(VIN);
         return builder.toString();
     }
 }
