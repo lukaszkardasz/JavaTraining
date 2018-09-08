@@ -30,6 +30,22 @@ class Car {
     }
 
     public Car() {
+        brand = "Ford";
+        model = "T";
+        colour = "black";
+        yearOfProd = 1909;
+        availableSeats = 2;
+        sortOf = "hatchback";
+    }
+
+    public Car(String colour, String brand, String model,
+               int yearOfProd, String sortOf, int availableSeats) {
+        this.colour = colour;
+        this.brand = brand;
+        this.model = model;
+        this.yearOfProd = yearOfProd;
+        this.sortOf = sortOf;
+        this.availableSeats = availableSeats;
     }
 
     @Override
