@@ -15,14 +15,21 @@ class ProductionLine {
                 "sedan", 4);
         System.out.println(car);
 
+        Engine engine = new DieselEngine(110,1.9);
+        car.setEngine(engine);
+
+        System.out.println(car.getEngine());
+
         System.out.println("Production finished");
 
+        System.out.println("Run test - start");
         car.workTime();
         car.start();
-        Thread.sleep(2300);
+        Thread.sleep(1300);
         car.workTime();
-        Thread.sleep(5690);
+        Thread.sleep(1690);
         car.stop();
         car.workTime();
+        System.out.println("Run test - stop");
     }
 }

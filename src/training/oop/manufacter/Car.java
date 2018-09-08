@@ -30,6 +30,8 @@ class Car {
     private Date startTime;
     private Date stopTime;
 
+    private Engine engine;
+
     void start() {
         isRunning = true;
         startTime = new Date();
@@ -83,6 +85,14 @@ class Car {
         this.availableSeats = availableSeats;
 
         this.VIN = VIN_temp;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
     }
 
     @Override
