@@ -1,6 +1,6 @@
 package training.oop.manufacter;
 
-class DieselEngine extends Engine {
+class DieselEngine extends Engine implements Catalyst{
 
     public DieselEngine(int power, double capacity) {
         this.capacity = capacity;
@@ -26,5 +26,10 @@ class DieselEngine extends Engine {
                 .append("\n\tCapacity: ").append(capacity).append(" L");
 
         return sb.toString();
+    }
+
+    @Override
+    public void cleanExhaust() {
+        System.out.println("In process ....");
     }
 }
