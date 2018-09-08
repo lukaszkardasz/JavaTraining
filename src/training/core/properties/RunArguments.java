@@ -1,5 +1,6 @@
 package training.core.properties;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -34,8 +35,8 @@ class RunArguments {
 
         FileOutputStream storeFile = new FileOutputStream("props.xml");
         FileOutputStream flatFile = new FileOutputStream("props.properties");
-        properties.storeToXML(storeFile,"System properties");
-        properties.store(flatFile,"System properties");
+        properties.storeToXML(storeFile, "System properties");
+        properties.store(flatFile, "System properties");
         //properties.loadFromXML(storeFile);
 
         System.out.println("System environments");
@@ -45,6 +46,16 @@ class RunArguments {
             System.out.println(k + " : " + envs.get(k));
         }
 
+        System.out.println("Load own properties - menu");
+        FileInputStream inFile = new FileInputStream("./src/training/configFiles/disches.properties");
+        Properties myMenu = new Properties();
+        myMenu.load(inFile);
+        for (Object k : myMenu.keySet()) {
+            System.out.println(k + " : " + myMenu.get(k));
+        }
+
+        storeFile = new FileOutputStream("./src/training/configFiles/disches.xml");
+        myMenu.storeToXML(storeFile,"Menu");
 
     }
 }
