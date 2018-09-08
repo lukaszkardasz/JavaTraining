@@ -20,7 +20,7 @@ class Car {
     private String brand;
     private String model;
     private int yearOfProd;
-    private String sortOf;
+    private CarSortOf sortOf;
     private int availableSeats;
 
     private String VIN;
@@ -72,11 +72,11 @@ class Car {
 
     public Car() {
         this("black", "Ford", "T", 1909,
-                "hatchback", 2);
+                CarSortOf.HATCHBACK, 2);
     }
 
     public Car(String colour, String brand, String model,
-               int yearOfProd, String sortOf, int availableSeats) {
+               int yearOfProd, CarSortOf sortOf, int availableSeats) {
         this.colour = colour;
         this.brand = brand;
         this.model = model;

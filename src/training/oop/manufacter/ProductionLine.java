@@ -13,7 +13,7 @@ class ProductionLine {
         }
         ////diesel engine in tesla car
         Car car = new Car("Blue", "Tesla", "S", 2017,
-                "sedan", 4);
+                CarSortOf.SEDAN, 4);
         System.out.println(car);
 
         Engine engine = new DieselEngine(110, 1.9);
@@ -23,7 +23,7 @@ class ProductionLine {
 
         ////gas engine in mercedes car
         car = new Car("White", "Merceses-Benz", "C300", 2017,
-                "sedan", 5);
+                CarSortOf.SEDAN, 5);
         System.out.println(car);
 
         engine = new GasEngine(264, 3.0);
@@ -35,7 +35,7 @@ class ProductionLine {
 
         ////eclectronic car
         car = new Car("Green", "Nissan", "Leaf",
-                2018, "Coupe", 2);
+                2018, CarSortOf.COUPE, 2);
         car.setEngine(new ElectroEngine(100));
         System.out.println(car);
         System.out.println(car.getEngine());
