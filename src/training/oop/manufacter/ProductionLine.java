@@ -1,6 +1,7 @@
 package training.oop.manufacter;
 
 class ProductionLine {
+    static Car[] cars = new Car[3];
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Production stated");
@@ -18,6 +19,7 @@ class ProductionLine {
         Engine engine = new DieselEngine(110,1.9);
         car.setEngine(engine);
         System.out.println(car.getEngine());
+        cars[0] = car;
 
         ////gas engine in mercedes car
         car = new Car("White", "Merceses-Benz", "C300", 2017,
@@ -29,9 +31,28 @@ class ProductionLine {
         System.out.println(car.getEngine());
         ((GasEngine) engine).activatedLpgSystem();
         System.out.println(car.getEngine());
+        cars[1] = car;
 
+        ////eclectronic car
+        car = new Car("Green","Nissan","Leaf",
+                2018,"Coupe",2);
+        car.setEngine(new ElectroEngine(100));
+        System.out.println(car);
+        System.out.println(car.getEngine());
+        cars[2] = car;
 
         System.out.println("Production finished");
+
+        System.out.println("Print only ecologic cars");
+        for ( Car c : cars){
+            Engine e = c.getEngine();
+            if (e instanceof Catalyst){
+                continue;
+            } else {
+                System.out.println(c);
+                System.out.println(e);
+            }
+        }
 
         System.out.println("Run test - start");
         car.workTime();
