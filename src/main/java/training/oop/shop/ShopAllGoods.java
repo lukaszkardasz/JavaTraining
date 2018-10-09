@@ -7,7 +7,8 @@ import java.util.List;
  * polimorfizm pozwala na traktowanie jako jeden rodzaj: Produkt, wszystkich obiektów a traktować
  * szczególnie gdy jest to wymagane
  */
-class ShopAllGoods {
+class ShopAllGoods
+{
 
     public static void main(String[] args) {
         List<Product> allGoods = new LinkedList<>();
@@ -31,13 +32,20 @@ class ShopAllGoods {
         }
 
         System.out.println("----------------------------------------------------------------------");
+        List<Downloadable> toDownload = new LinkedList<>();
         System.out.println("Show all web stuff");
         for (Product p : allGoods) {
             if (p instanceof Downloadable) {
                 System.out.println(p);
+                toDownload.add((Downloadable) p);
             }
         }
-
+        for (Downloadable d : toDownload)
+        {
+            System.out.println("Start");
+            d.download();
+            System.out.println("Completed");
+        }
     }
 
 }

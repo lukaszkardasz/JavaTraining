@@ -32,7 +32,7 @@ class Multiplication {
         Integer[] intArray = new Integer[dimension];
         Random random = new Random();
         for (int i = 0; i < intArray.length; i++) {
-            intArray[i] = random.nextInt(1_000);
+            intArray[i] = random.nextInt(1000);
         }
         return intArray;
     }

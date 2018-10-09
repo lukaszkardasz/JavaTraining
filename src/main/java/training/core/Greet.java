@@ -5,7 +5,8 @@ interface Greet {
 
     void greeting(String name);
 
-    default void greet(){
+    default void greet()
+    {
         System.out.println("Welcome");
     }
 }

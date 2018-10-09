@@ -13,7 +13,7 @@ class Car {
 
     static {
         System.out.println("Static block signature");
-        carSeriesCounter = 1_000;
+        carSeriesCounter = 1000;
     }
 
     private String colour;
