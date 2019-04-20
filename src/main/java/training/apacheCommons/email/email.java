@@ -1,10 +1,10 @@
 package training.apacheCommons.email;
 
 
-import org.apache.commons.mail.*;
+//import org.apache.commons.mail.*;
 
 class EmailExample {
-
+/*
     private static DefaultAuthenticator defaultAuthenticator;
 
     public static void main(String[] args) throws EmailException {
@@ -25,6 +25,6 @@ class EmailExample {
         email.setMsg("This is a test mail ... :-)");
         email.addTo("receiver@gmail.com");
         email.send();
-    }
+    }*/
 
 }
