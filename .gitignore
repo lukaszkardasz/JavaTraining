@@ -8,6 +8,7 @@
 .idea/**/tasks.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/*
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
@@ -55,6 +56,12 @@ fabric.properties
 # Compiled class file
 *.class
 
+#UML files
+*.uml
+
+#.idea
+
+
 # Log file
 *.log
 
@@ -100,3 +107,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+/.gitignore
