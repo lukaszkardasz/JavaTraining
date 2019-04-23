@@ -10,32 +10,46 @@ public class Main {
 
     public static void main(String[] args) {
 
-    Towar[] towar = new Towar[3];
+        Towar[] towar = new Towar[3];
 
-    towar[0] = new Towar();
-    towar[1] = new Towar(29.00, "Pieluchy");
-    towar[2] = new Towar(39.00, "Gruszki", 2019,11,28);
-
+        towar[0] = new Towar();
+        towar[1] = new Towar(29.00, "Pieluchy");
+        towar[2] = new Towar(39.00, "Gruszki", 2019, 11, 28);
 
 
         try {
-            PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME));
-            Towar.SaveToFile(towar, writer);
-            writer.close();
+            /*
+           DataOutputStream outS = new DataOutputStream(new FileOutputStream("nowy.txt"));
 
-            BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME));
-            Towar[] towarZpliku = Towar.writeFromFile(reader);
+           outS.writeDouble(12412.123);
 
-            for (int i = 0; i < towarZpliku.length ; i++){
+           outS.close();
 
-                System.out.println(towarZpliku[i]);
-            }
+           DataInputStream inS = new DataInputStream(new FileInputStream("nowy.txt"));
 
-            reader.close();
+           System.out.println(inS.readDouble());
+
+           inS.close();
+             */
+            RandomAccessFile RAF = new RandomAccessFile("nowy.txt", "rw");
+
+            RAF.writeDouble(123.42);
+            RAF.writeDouble(41.23);
+            RAF.writeChars("Aalal  ");
+
+            System.out.println(RAF.getFilePointer());
+
+            RAF.seek(16);
 
 
-            } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println(RAF.readChar());
+
+            System.out.println(Double.SIZE / 8 + Integer.SIZE / 8);
+
+            RAF.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+
         }
     }
 }
